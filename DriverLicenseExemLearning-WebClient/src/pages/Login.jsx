@@ -168,7 +168,6 @@ export default function Login() {
                                 required
                                 label="Password"
                                 autoComplete="current-password"
-                                id="outlined-adornment-password"
                                 name="password"
                                 id="password"
                                 type={showPassword ? 'text' : 'password'}
@@ -184,7 +183,6 @@ export default function Login() {
                                         </IconButton>
                                     </InputAdornment>
                                 }
-                                label="Password"
                             />
                         </FormControl>
                         {loginErrorMessage!=="" && (
@@ -210,7 +208,7 @@ export default function Login() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/Register" variant="body2">
+                                <Link href="/register" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
