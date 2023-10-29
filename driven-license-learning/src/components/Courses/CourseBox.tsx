@@ -2,9 +2,14 @@
 import CardSkeleton from "@/components/Skeleton/CardSkeleton";
 import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Button} from "@nextui-org/react";
 import {useRouter} from "next/navigation";
+import {selectUser} from "@/redux/features/userSlice";
+import {AppDispatch} from "@/redux/store";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function CourseBox(props) {
     const router = useRouter()
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch<AppDispatch>();
     // You can add any UI inside Loading, including a Skeleton.
     return (
         <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-8 bg-gradient-to-r from-purple-500 to-pink-500">
@@ -20,7 +25,7 @@ export default function CourseBox(props) {
                 </div>
                 <Button className="text-tiny" color="primary" radius="full" size="sm"
                         onClick={(e) => {
-                            router.push(`/courses/${props.packageId}`);
+                            user.isloggedInSuccess == true?router.push(`/courses/${props.packageId}`):router.push(`/login`)
                         }}
                 >
                     Learning now

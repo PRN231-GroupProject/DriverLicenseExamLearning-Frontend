@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="add courses page">
-      <change afterPath="$PROJECT_DIR$/src/app/(customer)/page.tsx" afterDir="false" />
+    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="fix xl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Courses/CourseBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses/CourseBox.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,7 @@
       <workItem from="1698339513887" duration="5748000" />
       <workItem from="1698398751247" duration="11688000" />
       <workItem from="1698428101481" duration="28827000" />
-      <workItem from="1698562704505" duration="2106000" />
+      <workItem from="1698562704505" duration="3456000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1697994390785</created>
@@ -156,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698138582259</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix xl">
+      <created>1698564975709</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698564975709</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +192,8 @@
     </ignored-roots>
     <MESSAGE value="init project" />
     <MESSAGE value="add courses page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add courses page" />
+    <MESSAGE value="fix xl" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix xl" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
