@@ -1,6 +1,6 @@
 import React from "react";
 import {Suspense} from "react";
-import Loading from "@/app/courses/loading";
+import Loading from "@/app/(customer)/test/loading";
 import CourseBox from "@/components/Courses/CourseBox";
 export default function CoursesLayout({
                                             children, // will be a page or nested layout
