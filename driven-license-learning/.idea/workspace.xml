@@ -5,38 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="add courses page">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/AxiosAdmin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/packageApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/userApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/signup/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(customer)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LandingPage/Navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/usePackage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/features/userSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/getOptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/serverUtils.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/setInitForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(customer)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/courses/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/test/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/test/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/test/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Courses/CourseBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses/CourseBox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LandingPage/Navigation.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,36 +26,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(customer)" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\test" />
-      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\driven-license-learning" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(customer)" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)" />
     </key>
   </component>
@@ -161,6 +133,7 @@
       <workItem from="1698339513887" duration="5748000" />
       <workItem from="1698398751247" duration="11688000" />
       <workItem from="1698428101481" duration="28827000" />
+      <workItem from="1698562704505" duration="2106000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1697994390785</created>
