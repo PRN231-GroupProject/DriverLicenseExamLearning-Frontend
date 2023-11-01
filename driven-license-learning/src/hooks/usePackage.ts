@@ -9,6 +9,9 @@ export function usePackage () {
             useSWR("/package", packageApi.getPackage),
 
         getPackageById: (id: bigint) =>
-            useSWR(`/package?$filter=packageId%20eq%20${id}`, packageApi.getPackage)
+            useSWR(`/package?$filter=packageId%20eq%20${id}`, packageApi.getPackage),
+
+        getPackageByPackageType: (id: number) =>
+            useSWR(`/package?$filter=PackageTypeId%20eq%20${id}`, packageApi.getPackage)
     }
 }

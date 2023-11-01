@@ -23,7 +23,6 @@ function Navigation () {
     const user = useSelector(selectUser);
     const dispatch = useDispatch<AppDispatch>();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    console.log(user);
     const menuItems = [
         "Courses",
         "Test",
@@ -37,6 +36,14 @@ function Navigation () {
         router.push('/login')
     };
 
+    const handleProfile = () => {
+        router.push(`/profile/${user.userAccountInfor.userId}`);
+    };
+
+    const handleHistory = () => {
+        router.push(`/historyBooking`)
+    }
+
     return (
         <Navbar isBordered
                 isMenuOpen={isMenuOpen}
@@ -49,18 +56,27 @@ function Navigation () {
             <NavbarBrand>
                 <a href='/'  className="font-bold text-inherit text-decoration-none">Driven License Learning</a>
             </NavbarBrand>
-
             <NavbarContent className="hidden sm:flex gap-4" as='div' justify="center">
-                <NavbarItem>
-                    <Link color="secondary" aria-current="page" href="/courses">
-                        Courses
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link href="/test" aria-current="page" color="secondary">
-                        Test
-                    </Link>
-                </NavbarItem>
+                {
+                    user.userAccountInfor?.role.roleName == "Mentor" ?
+                        <NavbarItem>
+                            <Link color="secondary" aria-current="page" href="/tracking">
+                                Tracking
+                            </Link>
+                        </NavbarItem> :
+                        <>
+                            <NavbarItem>
+                                <Link color="secondary" aria-current="page" href="/courses">
+                                    Courses
+                                </Link>
+                            </NavbarItem>
+                            <NavbarItem>
+                                <Link href="/test" aria-current="page" color="secondary">
+                                    Test
+                                </Link>
+                            </NavbarItem>
+                        </>
+                }
             </NavbarContent>
             {
                 user.isloggedInSuccess == true?
@@ -81,7 +97,13 @@ function Navigation () {
                                 <DropdownItem key="profile" textValue className="h-14 gap-2">
                                     <p className="font-semibold">{user.userAccountInfor.email}</p>
                                 </DropdownItem>
-                                <DropdownItem key="team_settings" textValue>My Profile</DropdownItem>
+                                {
+                                    user.userAccountInfor?.role.roleName == "Member" &&
+                                        <DropdownItem key="history" onClick={() => handleHistory()}>
+                                            History booking
+                                        </DropdownItem>
+                                }
+                                <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
                                 <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
                                     Log Out
                                 </DropdownItem>

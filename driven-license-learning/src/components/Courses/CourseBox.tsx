@@ -5,8 +5,9 @@ import {useRouter} from "next/navigation";
 import {selectUser} from "@/redux/features/userSlice";
 import {AppDispatch} from "@/redux/store";
 import {useDispatch, useSelector} from "react-redux";
+import React from "react";
 
-export default function CourseBox(props) {
+export const CourseBox = React.forwardRef((props, ref) => {
     const router = useRouter()
     const user = useSelector(selectUser);
     const dispatch = useDispatch<AppDispatch>();
@@ -20,10 +21,13 @@ export default function CourseBox(props) {
                 <div>
                     <p className="text-black ">{props.description}</p>
                 </div>
+                <div >
+                    <p className="text-black text-tiny mt-3 ">Type: {props.packageTypes[0].packageTypeName}</p>
+                </div>
                 <div>
                     <p className="text-black text-tiny">Price: {props.price} VND</p>
                 </div>
-                <Button className="text-tiny" color="primary" radius="full" size="sm"
+                <Button className="text-tiny" color="primary" radius="full" size="sm" ref={ref}
                         onClick={(e) => {
                             user.isloggedInSuccess == true?router.push(`/courses/${props.packageId}`):router.push(`/login`)
                         }}
@@ -34,4 +38,4 @@ export default function CourseBox(props) {
         </Card>
 
     )
-}
+})

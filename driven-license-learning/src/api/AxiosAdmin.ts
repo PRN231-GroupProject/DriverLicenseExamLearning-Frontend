@@ -1,4 +1,5 @@
 import axios from "axios";
+import {getTokenDataFromLocalStorage} from "@/utils/serverUtils";
 
 const adminAxios = axios.create({
     baseURL: "https://www.driverlicenseexamlearning.somee.com/api",
@@ -13,6 +14,7 @@ const adminAxios = axios.create({
 });
 adminAxios.interceptors.request.use(
     (config) => {
+        config.headers["Authorization"] = "Bearer " + getTokenDataFromLocalStorage();
         return config;
     },
     (error) => {
@@ -31,22 +33,6 @@ adminAxios.interceptors.response.use(
         console.log(error.response.status);
 
         if (error.response.status === 401) {
-            localStorage.clear();
-            Swal.fire({
-                title: " Phiên đăng nhập hết hạn!",
-                text: "Tài khoản của bạn đã hết hạn!",
-                showClass: {
-                    popup: "animate__animated animate__fadeInDown",
-                },
-                hideClass: {
-                    popup: "animate__animated animate__fadeOutUp",
-                },
-                icon: "error",
-                confirmButtonText: "OK",
-            }).then((confirm) => {
-                window.location.href =
-                    "http://localhost:3001/";
-            });
         }
         throw error;
     }

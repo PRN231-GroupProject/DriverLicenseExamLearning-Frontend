@@ -18,7 +18,7 @@ export const userSlice = createSlice({
         },
 
         USER_LOGIN_SUCCESS: (state, action) => {
-            state.token = action.payload.accessToken;
+            state.token = getTokenDataFromLocalStorage();
             state.userAccountInfor = action.payload;
             state.role = action.payload.role;
             state.isloggedInSuccess = true;

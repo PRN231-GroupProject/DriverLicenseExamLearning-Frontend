@@ -1,14 +1,14 @@
 import adminAxios from "./AxiosAdmin";
 
-export const userApi = {
+export const bookingApi = {
 
-    getUser: (url) => {
+    getBooking: (url) => {
         return adminAxios.get(url);
     },
 
-    login: async (account) => {
+    postBooking: async (booking) => {
         try {
-            const res = await adminAxios.post(`/user/login`, account);
+            const res = await adminAxios.post(`/booking`, booking);
             console.log(res)
             return res;
         } catch (err) {
@@ -16,10 +16,10 @@ export const userApi = {
         }
     },
 
-    register: async (account) => {
+    putBooking: async (booking) => {
         try {
-            console.log(account);
-            const res = await adminAxios.post(`/user/register`, account);
+            console.log(booking);
+            const res = await adminAxios.put(`/booking`, booking);
             return res;
         } catch (err) {
             throw err;

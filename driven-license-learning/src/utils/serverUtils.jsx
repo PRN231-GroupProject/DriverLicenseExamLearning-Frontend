@@ -11,20 +11,19 @@ export const getTokenDataFromLocalStorage = () => {
   let tokenData;
   if(typeof localStorage !== 'undefined'){
     tokenData = localStorage.getItem("token")
-        ? localStorage.getItem("token")
+        ? JSON.parse(localStorage.getItem("token"))
         : null;
   }else{
     return null;
   }
+  console.log(tokenData)
   return tokenData;
 };
 
 export const convertTokenToObject = () => {
   const token = getTokenDataFromLocalStorage();
-  console.log(token);
   if (!token) return null;
   const object = JSON.parse(atob(token.split('.')[1]))
-  console.log(object);
   return object;
 };
 
