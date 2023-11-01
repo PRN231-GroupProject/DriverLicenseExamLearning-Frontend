@@ -7,6 +7,7 @@ import React from "react";
 import {SkeletonTheme} from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import {Providers} from "@/app/provider";
+import {ToastContainer} from "react-toastify";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function CustomerLayout({
             <div>
                 <Navigation/>
                 {children}
+                <ToastContainer />
             </div>
     )
 }

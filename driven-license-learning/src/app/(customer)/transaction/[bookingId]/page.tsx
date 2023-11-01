@@ -24,39 +24,46 @@ import {router} from "next/client";
 import {useBooking} from "@/hooks/useBooking";
 import {trackingApi} from "@/api/trackingApi";
 import {transactionApi} from "@/api/transactionApi";
+import {useRouter} from "next/navigation";
 
 export default function TransactionPage({ params }: { params: { bookingId: number } }) {
 
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-
+    const router = useRouter()
     const { getBookingById } = useBooking();
-    const {data: bookings} = getBookingById(params.bookingId);
+    const {data: bookings, isLoading} = getBookingById(params.bookingId);
     const bookings1 = bookings == undefined||bookings[0]
 
+    console.log(bookings1)
+    const [dates, setDates] = useState([])
+
+    const [ optionDates, setOptionDates] = useState([])
+
     const [ bookingId, setBookingId] = useState(0)
-    const [ booking, setBooking] = useState({
-        packageId : params.packageId,
-        carId : 0,
-        mentorId : 0
-    })
+
+    useEffect(() => {
+        if (dates) {
+            const date = dates.map(row => {
+                return row.format('YYYY-MM-DD');
+            });
+            setOptionDates(date);
+        }
+    }, [dates]);
 
     const handleTransaction = (e) => {
-        console.log(transaction)
+        console.log(bookings1.package[0].price)
         const fetchTransaction = async () => {
             var response;
             try {
-                console.log(booking)
-                response = await transactionApi.postTransaction(transaction)
+                response = await transactionApi.postTransaction(bookings1.bookingId,bookings1.package[0].price)
                     .then(r => {
-                        setBookingId(r.bookingId)
                         notify(r.msg,'success');
-                        router.push(`/transaction/${r.bookingId}`)
+                        onOpen()
                     })
                 console.log(response)
             } catch (error) {
-                console.log(error.response.data)
-                notify(error.response.data.Message,'error')
-                onOpen()
+                console.log(error)
+                notify(error,'error')
             }
         };
         fetchTransaction();
@@ -75,96 +82,62 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
 
     const handleRegisterDay = (e) => {
         console.log(optionDates)
-        console.log(bookingId)
+        console.log(bookings1.bookingId)
         const fetchRegisterDay = async () => {
             var response;
             try {
                 console.log(optionDates)
-                response = await memberDayRegisterApi.postMemberDayRegisterApi(bookingId, optionDates)
+                response = await memberDayRegisterApi.postMemberDayRegisterApi(bookings1.bookingId, optionDates)
                     .then(r => {
                         notify(r.msg,'success');
+                        router.push('/courses')
                     })
                 console.log(response)
             } catch (error) {
                 console.log(error.response.data)
                 notify(error.response.data.Message,'error')
-                onOpen()
             }
         };
         fetchRegisterDay();
-    };
+    }
 
+    if(isLoading) return <div>Loading...</div>
     return (
         <div>
-            <div className='w-full h-[500px] grid grid-cols-12 grid-rows-2 grid-flow-col'>
-                <Card isFooterBlurred className="w-full col-span-8 row-span-2 ml-4 mt-6 mb-1">
+            <div className='w-full h-[500px] text-center'>
+                <Card isFooterBlurred className="w-3/5 h-[500px] mx-auto mt-6 mb-1">
                     <CardHeader className="absolute z-10 top-1 flex-col justify-between">
-                        <h4 className="text-black font-medium text-2xl">{package1.packageName}</h4>
+                        <h4 className="text-black font-medium text-2xl">{bookings1.package==undefined||bookings1.package[0].packageName}</h4>
                     </CardHeader>
                     <Divider className="absolute z-10 top-16"/>
                     <CardBody className="absolute z-10 top-20 flex-col justify-center content-center flex-wrap h-2/3">
-                        <div className='w-full h-full h-11/12 grid grid-rows-6 p-1'>
+                        <div className='w-full h-full h-11/12 grid grid-rows-8 p-1'>
                             <p className='row-span-2 font-medium'>
-                                Description: <span className='font-normal'>{package1.description}</span>
+                                Description: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].description}</span>
                             </p>
                             <p className='row-span-1 font-medium'>
-                                License Type: <span className='font-normal'>{package1.licenseType==undefined||package1.licenseType[0].licenseName}</span>
+                                Price: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].price}</span>
                             </p>
                             <p className='row-span-1 font-medium'>
-                                Package Type: <span className='font-normal'>{package1.packageTypes==undefined||package1.packageTypes[0].packageTypeName}</span>
+                                Number Of Km Or Days: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].numberOfKmOrDays} (km/days)</span>
                             </p>
                             <p className='row-span-1 font-medium'>
-                                Price: <span className='font-normal'>{package1.price}</span>
+                                Car: <span className='font-normal'>{bookings1.car==undefined||bookings1.car[0].carName}</span>
                             </p>
                             <p className='row-span-1 font-medium'>
-                                Number Of Km One Day: <span className='font-normal'>{package1.numberOfKmOrDays} {package1.packageTypes==undefined||package1.packageTypes[0].packageTypeName}</span>
+                                Mentor: <span className='font-normal'>{bookings1.mentor==undefined||bookings1.mentor[0].userName}</span>
                             </p>
                         </div>
-                    </CardBody>
-                </Card>
-                <Card isFooterBlurred className="w-5/6 col-span-4 row-span-1 mx-auto mt-6 mb-1">
-                    <CardHeader className="absolute z-10 top-1 flex-col justify-between">
-                        <h4 className="text-black font-medium text-2xl">Car</h4>
-                    </CardHeader>
-                    <Divider className="absolute z-10 top-16"/>
-                    <CardBody className="absolute z-10 top-16 flex-col justify-center content-center flex-wrap h-2/3">
-                        <Select
-                            items={optionCars}
-                            label="Car"
-                            placeholder="Select a car"
-                            className="max-w-xs"
-                            onChange={handleCarChange}
-                        >
-                            {(car) => <SelectItem key={car.carId} value={car.carId}>{car.carName}</SelectItem>}
-                        </Select>
-                    </CardBody>
-                </Card>
-                <Card isFooterBlurred className="w-5/6 col-span-4 row-span-1 mx-auto mt-6 mb-1">
-                    <CardHeader className="absolute z-10 top-1 flex-col justify-between">
-                        <h4 className="text-black font-medium text-2xl">Mentor</h4>
-                    </CardHeader>
-                    <Divider className="absolute z-10 top-16"/>
-                    <CardBody className="absolute z-10 top-16 flex-col justify-center content-center flex-wrap h-2/3">
-                        <Select
-                            items={optionMentors}
-                            label="Mentor"
-                            placeholder="Select a mentor"
-                            className="max-w-xs"
-                            onChange={handleMentorChange}
-                        >
-                            {(mentor) => <SelectItem key={mentor.userId} value={mentor.userId}>{mentor.userName}</SelectItem>}
-                        </Select>
                     </CardBody>
                 </Card>
             </div>
             <div className='text-center mt-4'>
                 <Button className="text-tiny mx-auto " color="primary" radius="full" size="md"
-                        onClick={handleBooking}
+                        onClick={handleTransaction}
                 >
-                    Booking now
+                    Pay now
                 </Button>
             </div>
-            <ToastContainer />
             <Modal
                 backdrop="opaque"
                 isOpen={isOpen}

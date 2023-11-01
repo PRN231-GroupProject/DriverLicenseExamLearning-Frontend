@@ -32,8 +32,8 @@ function Navigation () {
         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         localStorage.removeItem("token");
         await delay(500);
-        dispatch(USER_LOGOUT_SUCCESS());
         router.push('/login')
+        dispatch(USER_LOGOUT_SUCCESS());
     };
 
     const handleProfile = () => {

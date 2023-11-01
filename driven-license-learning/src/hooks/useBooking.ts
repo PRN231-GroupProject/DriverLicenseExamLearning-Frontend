@@ -12,6 +12,7 @@ export function useBooking () {
             useSWR(`/booking?$filter=bookingId eq ${id}`, bookingApi.getBooking),
 
         getBookingByEmail: (email: string) =>
-            useSWR(`/booking?$expand=member($filter=email eq '${email}')`, bookingApi.getBooking),
+            useSWR(`/booking?$filter=member/any(member: member/email eq '${email}')&$expand=mentor,package`
+                , bookingApi.getBooking),
     }
 }

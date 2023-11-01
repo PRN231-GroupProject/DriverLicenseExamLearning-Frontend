@@ -1,6 +1,7 @@
 import React from "react";
 import {Suspense} from "react";
 import Loading from "@/app/(customer)/courses/loading";
+import {ToastContainer} from "react-toastify";
 export default function CoursesLayout({
                                             children, // will be a page or nested layout
                                         }: {

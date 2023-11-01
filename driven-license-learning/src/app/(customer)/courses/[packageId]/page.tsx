@@ -20,10 +20,11 @@ import "react-toastify/dist/ReactToastify.css";
 import DatePicker, { DateObject } from "react-multi-date-picker"
 import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import {memberDayRegisterApi} from "@/api/memberDayRegisterApi";
-import {router} from "next/client";
+import {useRouter} from "next/navigation";
 
 export default function CourseDetailPage({ params }: { params: { packageId: bigint } }) {
 
+    const router = useRouter()
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     const { getPackageById } = usePackage();
@@ -34,16 +35,13 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
     const {data: mentors} =getMentors();
     const package1 = packages == undefined||packages[0]
 
-    const [dates, setDates] = useState([])
     const [errorMessage, setErrorMessage] = useState("");
 
     const [ optionCars, setOptionCars] = useState([])
     const [ optionMentors, setOptionMentors] = useState([])
-    const [ optionDates, setOptionDates] = useState([])
 
     const [ carId, setCarId] = useState(0)
     const [ mentorId, setMentorId] = useState(0)
-    const [ bookingId, setBookingId] = useState(0)
     const [ booking, setBooking] = useState({
         packageId : params.packageId,
         carId : 0,
@@ -85,49 +83,18 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
                 console.log(booking)
                 response = await bookingApi.postBooking(booking)
                     .then(r => {
-                        setBookingId(r.bookingId)
-                        notify(r.msg,'success');
+                        notify("Booking sucessfully!",'success');
                         router.push(`/transaction/${r.bookingId}`)
                     })
                 console.log(response)
             } catch (error) {
-                console.log(error.response.data)
-                notify(error.response.data.Message,'error')
+                console.log(error)
+                notify(error,'error')
                 onOpen()
             }
         };
         fetchBooking();
     };
-
-    const handleRegisterDay = (e) => {
-        console.log(optionDates)
-        console.log(bookingId)
-        const fetchRegisterDay = async () => {
-            var response;
-            try {
-                console.log(optionDates)
-                response = await memberDayRegisterApi.postMemberDayRegisterApi(bookingId, optionDates)
-                    .then(r => {
-                        notify(r.msg,'success');
-                    })
-                console.log(response)
-            } catch (error) {
-                console.log(error.response.data)
-                notify(error.response.data.Message,'error')
-                onOpen()
-            }
-        };
-        fetchRegisterDay();
-    };
-
-    useEffect(() => {
-        if (dates) {
-            const date = dates.map(row => {
-                return row.format();
-            });
-            setOptionDates(date);
-        }
-    }, [dates]);
 
     useEffect(() => {
         if (cars) {
@@ -218,43 +185,6 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
                     Booking now
                 </Button>
             </div>
-            <ToastContainer />
-            <Modal
-                backdrop="opaque"
-                isOpen={isOpen}
-                onOpenChange={onOpenChange}
-                classNames={{
-                    backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
-                }}
-            >
-                <ModalContent className='h-[500px] w-[700px]'>
-                    {(onClose) => (
-                        <>
-                            <ModalHeader className="flex flex-col gap-1 text-center">Choose Date Learning</ModalHeader>
-                            <ModalBody className='text-center'>
-                                <DatePicker
-                                    value={dates}
-                                    onChange={setDates}
-                                    multiple
-                                    plugins={[
-                                        <DatePanel sort="date" />
-                                    ]}/>
-                                {optionDates.map((d,index) => (
-                                    <div>Day {index+1}: {d}</div>
-                                ))}
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={handleRegisterDay}>
-                                    Confirm
-                                </Button>
-                            </ModalFooter>
-                        </>
-                    )}
-                </ModalContent>
-            </Modal>
         </div>
     )
 }

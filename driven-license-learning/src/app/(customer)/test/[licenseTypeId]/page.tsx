@@ -7,6 +7,7 @@ export default function TestDetailPage({ params }: { params: { licenseTypeId: bi
 
     const {getExams} = useExam()
     const {data: exam} = getExams(params.licenseTypeId)
+    console.log(params.licenseTypeId)
     console.log(exam)
     return (
         <>
