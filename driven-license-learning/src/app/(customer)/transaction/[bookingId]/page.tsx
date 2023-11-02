@@ -55,7 +55,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
         const fetchTransaction = async () => {
             var response;
             try {
-                response = await transactionApi.postTransaction(bookings1.bookingId,bookings1.package[0].price)
+                response = await transactionApi.postTransaction(bookings1.bookingId)
                     .then(r => {
                         notify(r.msg,'success');
                         onOpen()
@@ -63,7 +63,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
                 console.log(response)
             } catch (error) {
                 console.log(error)
-                notify(error,'error')
+                notify("error",'error')
             }
         };
         fetchTransaction();

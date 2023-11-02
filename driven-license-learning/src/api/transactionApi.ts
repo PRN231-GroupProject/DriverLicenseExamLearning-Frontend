@@ -2,8 +2,8 @@ import adminAxios from "./AxiosAdmin";
 
 export const transactionApi = {
 
-    postTransaction: async (bookingId, transaction) => {
-        console.log(transaction)
+    postTransaction: async (bookingId) => {
+        console.log(bookingId)
         try {
             const res = await adminAxios.post(`/Transaction/transaction?bookingId=${bookingId}`,'{}');
             console.log(res)
