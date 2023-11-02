@@ -44,6 +44,14 @@ function Navigation () {
         router.push(`/historyBooking`)
     }
 
+    const handleTransaction = () => {
+        router.push(`/historyTransaction`)
+    }
+
+    const handleSendLicense = () => {
+        router.push(`/send-license-application`)
+    }
+
     return (
         <Navbar isBordered
                 isMenuOpen={isMenuOpen}
@@ -58,7 +66,7 @@ function Navigation () {
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" as='div' justify="center">
                 {
-                    user.userAccountInfor?.role.roleName == "Mentor" ?
+                    user.userAccountInfor?.role?.roleName == "Mentor" ?
                         <NavbarItem>
                             <Link color="secondary" aria-current="page" href="/tracking">
                                 Tracking
@@ -93,21 +101,38 @@ function Navigation () {
                                     src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                                 />
                             </DropdownTrigger>
-                            <DropdownMenu aria-label="Profile Actions" variant="flat">
-                                <DropdownItem key="profile" textValue className="h-14 gap-2">
-                                    <p className="font-semibold">{user.userAccountInfor.email}</p>
-                                </DropdownItem>
+
                                 {
-                                    user.userAccountInfor?.role.roleName == "Member" &&
+                                    user.userAccountInfor?.role?.roleName == "Member" ?
+                                    <DropdownMenu aria-label="Profile Actions" variant="flat">
+                                        <DropdownItem key="profile" textValue className="h-14 gap-2">
+                                            <p className="font-semibold">{user.userAccountInfor.email}</p>
+                                        </DropdownItem>
                                         <DropdownItem key="history" onClick={() => handleHistory()}>
                                             History booking
                                         </DropdownItem>
+                                        <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
+                                            History transaction
+                                        </DropdownItem>
+                                        <DropdownItem key="license_application" onClick={() => handleSendLicense()}>
+                                            Send license application
+                                        </DropdownItem>
+                                        <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
+                                        <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
+                                            Log Out
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                        :
+                                        <DropdownMenu aria-label="Profile Actions" variant="flat">
+                                            <DropdownItem key="profile" textValue className="h-14 gap-2">
+                                                <p className="font-semibold">{user.userAccountInfor.email}</p>
+                                            </DropdownItem>
+                                            <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
+                                            <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
+                                                Log Out
+                                            </DropdownItem>
+                                        </DropdownMenu>
                                 }
-                                <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
-                                <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
-                                    Log Out
-                                </DropdownItem>
-                            </DropdownMenu>
                         </Dropdown>
                     </NavbarContent>
                     :

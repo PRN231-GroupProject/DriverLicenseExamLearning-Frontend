@@ -25,7 +25,6 @@ import {useRouter} from "next/navigation";
 export default function CourseDetailPage({ params }: { params: { packageId: bigint } }) {
 
     const router = useRouter()
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     const { getPackageById } = usePackage();
     const { getCars } = useCar();
@@ -35,7 +34,6 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
     const {data: mentors} =getMentors();
     const package1 = packages == undefined||packages[0]
 
-    const [errorMessage, setErrorMessage] = useState("");
 
     const [ optionCars, setOptionCars] = useState([])
     const [ optionMentors, setOptionMentors] = useState([])
@@ -89,8 +87,7 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
                 console.log(response)
             } catch (error) {
                 console.log(error)
-                notify(error,'error')
-                onOpen()
+                notify("error",'error')
             }
         };
         fetchBooking();

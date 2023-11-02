@@ -22,7 +22,10 @@ export const CourseBox = React.forwardRef((props, ref) => {
                     <p className="text-black ">{props.description}</p>
                 </div>
                 <div >
-                    <p className="text-black text-tiny mt-3 ">Type: {props.packageTypes[0].packageTypeName}</p>
+                    <p className="text-black text-tiny mt-3 ">License Type: {props.licenseName}</p>
+                </div>
+                <div >
+                    <p className="text-black text-tiny ">Package Type: {props.packageTypes[0].packageTypeName}</p>
                 </div>
                 <div>
                     <p className="text-black text-tiny">Price: {props.price} VND</p>

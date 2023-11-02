@@ -7,7 +7,7 @@ import {Providers} from "@/app/provider";
 import ReduxProvider from "@/redux/provider";
 import dynamic from "next/dynamic";
 import {ToastContainer} from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 const PersistedReduxProvider = dynamic(
     () => import("@/redux/provider"),
     { ssr: false }

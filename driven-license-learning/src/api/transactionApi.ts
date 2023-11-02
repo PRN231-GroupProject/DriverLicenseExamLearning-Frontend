@@ -13,4 +13,15 @@ export const transactionApi = {
         }
     },
 
+    refund: async (bookingId) => {
+        console.log(bookingId)
+        try {
+            const res = await adminAxios.post(`/Transaction/refund?bookingId=${bookingId}`,'{}');
+            console.log(res)
+            return res;
+        } catch (err) {
+            throw err;
+        }
+    },
+
 }

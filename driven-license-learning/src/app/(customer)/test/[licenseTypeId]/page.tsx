@@ -27,10 +27,9 @@ export default function TestDetailPage({ params }: { params: { licenseTypeId: bi
     } = form;
 
     const {getExams} = useExam()
-    const {data: exam, isLoading} = getExams(params.licenseTypeId)
-    console.log(params.licenseTypeId)
-    console.log(exam==undefined||exam[0].exams==undefined||exam[0].exams[0].questions)
-    const questions = exam==undefined||exam[0].exams==undefined||exam[0].exams[0].questions;
+    const {data: exam, isLoading, error,} = getExams(params.licenseTypeId)
+    // console.log(params.licenseTypeId)
+    // console.log(exam==undefined||exam[0].exams==undefined||exam[0].exams[0].questions)
 
     const onSubmit = (input) => {
         console.log(input);
@@ -44,13 +43,21 @@ export default function TestDetailPage({ params }: { params: { licenseTypeId: bi
         )
     }
 
+    if (error) {
+        return (
+            <div className='content-center text-center mt-6'>
+                Not found exams
+            </div>
+        )
+    }
+
     return (
         <>
             <div className='w-4/5 gap-2 grid grid-cols-12  px-8 mt-4 mb-4 mx-auto t'>
                 <div className='col-span-12  sm:col-span-9 bg-slate-200 rounded-lg p-6'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {
-                            questions?.map((q,index) => (
+                            exam[0]?.exams[0]?.questions?.map((q,index) => (
                                 <div key = {index} className='mb-6 mt-3'>
                                     <Input
                                         {...register(`answerDetails[${index}].questionID`)}
