@@ -10,14 +10,20 @@ import {
     Link
 } from '@nextui-org/react';
 import {Alert, Snackbar} from "@mui/material"
+import { IconEyeOff, IconEye } from '@tabler/icons-react';
 import {userApi} from "@/api/userApi";
 import { useState } from "react";
 import {useRouter, useSearchParams} from 'next/navigation'
 import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS} from '@/redux/features/userSlice'
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/redux/store";
+import {toast} from "react-toastify";
 
 export default function Login() {
+
+    const [isVisible, setIsVisible] = React.useState(false);
+
+    const toggleVisibility = () => setIsVisible(!isVisible);
 
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -30,6 +36,17 @@ export default function Login() {
 
     const dispatch = useDispatch<AppDispatch>();
 
+    const notify = React.useCallback((message,type) => {
+        toast[type](message,{
+            position: "top-right",
+            autoClose: 5000,// Set it to false directly
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+        });
+    }, []);
+
     const onSubmit = (input) => {
         console.log(input);
         const fetchUser = async () => {
@@ -40,6 +57,7 @@ export default function Login() {
                         console.log(r.accessToken)
                         localStorage.setItem("token", JSON.stringify(r.accessToken));
                         dispatch(USER_LOGIN_SUCCESS(r));
+                        notify("Login sucessfully!",'success');
                         router.push("/")
                     })
             } catch (error) {
@@ -60,26 +78,7 @@ export default function Login() {
 
     return (
         <div>
-            {alertRegister && (
-                <Snackbar
-                    open={alertRegister}
-                    autoHideDuration={4000}
-                    onClose={handleClose}
-                >
-                    <Alert
-                        severity="success"
-                        sx={{
-                            fontSize: "18px",
-                            right: 40,
-                            bottom: 40,
-                            position: "fixed",
-                        }}
-                    >
-                        Register success!
-                    </Alert>
-                </Snackbar>
-            )}
-            <div className='flex flex-wrap justify-center content-center h-screen bg-gradient-to-r from-purple-500 to-pink-500' style={{ width: '100%'}}>
+            <div className='flex flex-wrap justify-center content-center h-screen' style={{ width: '100%'}}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Card isFooterBlurred className="w-[450px] h-[500px] text-center">
                         <Spacer y='5'/>
@@ -87,7 +86,8 @@ export default function Login() {
                         <Spacer y='10'/>
                         <Input
                             {...register("email")}
-                            clearable
+                            isClearable
+                            isRequired
                             bordered
                             type="email" label="Email"
                             className='mx-auto mb-5 w-4/5'
@@ -95,9 +95,19 @@ export default function Login() {
                         <Spacer y='3'/>
                         <Input
                             {...register("password")}
-                            clearable
+                            isRequired
                             bordered
-                            type='password' label="Password"
+                            endContent={
+                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                                    {isVisible ? (
+                                        <IconEye className="text-2xl text-default-400 pointer-events-none" />
+                                    ) : (
+                                        <IconEyeOff  className="text-2xl text-default-400 pointer-events-none" />
+                                    )}
+                                </button>
+                            }
+                            type={isVisible ? "text" : "password"}
+                            label="Password"
                             className='mx-auto mb-5 w-4/5'
                         />
                         {loginErrorMessage!==""? (
@@ -114,8 +124,11 @@ export default function Login() {
 
                         <Button className='mx-auto mt-2 w-4/5 bg-sky-400 font-bold text-l' type="submit">Login</Button>
                         <Spacer y='5'/>
+                        <div className='mt-1 mb-2 text-xs'>
+                            Not have account yet? <Link className='text-xs' href='/signup' size="sm">Signup here</Link>
+                        </div>
                         <div className='mt-1 mb-5 text-xs'>
-                            Not have account yet? <Link href='/signup' size="sm">Signup here</Link>
+                            You want to become a mentor? <Link className='text-xs' href='/mentor-signup' size="sm">Apply here</Link>
                         </div>
                     </Card>
                 </form>

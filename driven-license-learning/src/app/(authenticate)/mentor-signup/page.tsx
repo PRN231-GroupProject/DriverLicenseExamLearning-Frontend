@@ -8,20 +8,16 @@ import {
     Input,
     Link
 } from '@nextui-org/react';
-import { IconEyeOff, IconEye } from '@tabler/icons-react';
-import {useForm} from "react-hook-form";
+import {useForm, Controller} from "react-hook-form";
 import {AppDispatch} from "@/redux/store";
 import {userApi} from "@/api/userApi";
 import {useRouter} from "next/navigation";
 import {useDispatch} from "react-redux";
 import {toast} from "react-toastify";
 
-export default function SignUp() {
-    const [isVisible, setIsVisible] = React.useState(false);
-
-    const toggleVisibility = () => setIsVisible(!isVisible);
+export default function MentorSignUp() {
     const router = useRouter()
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const [registerErrorMessage, setRegisterErrorMessage] = useState("");
     const dispatch = useDispatch<AppDispatch>();
 
@@ -39,14 +35,14 @@ export default function SignUp() {
     const onSubmit = (input) => {
         console.log(input);
         const fetchUser = async () => {
-            var response;
             try {
-                await userApi.register(input).then(() => {
-                    notify("Register sucessfully!", 'success')
+                const respone = await userApi.registerMentor(input).then(() => {
+                    notify("Apply sucessfully!", 'success')
                     router.push(`/login`)
                 })
+                console.log(respone)
             } catch (error) {
-                console.log(error.response.data.message);
+                console.log(error.response.data.Message);
                 setRegisterErrorMessage(error.response.data.message)
             }
         };
@@ -59,37 +55,37 @@ export default function SignUp() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Card isFooterBlurred className="w-[550px] h-[600px] text-center">
                         <Spacer y='5'/>
-                        <div className='mt-5 mb-5 font-bold text-2xl'>Sign Up</div>
+                        <div className='mt-2 mb-2 font-bold text-2xl'>Sign Up</div>
                         <Spacer y='7'/>
                         <div className='flex flex-wrap mx-10'>
                             <Input
-                                {...register("name")}
+                                {...register("MentorName")}
                                 isClearable
                                 isRequired
-                                type="text" label="Full name"
+                                type="text" label="Mentor Name"
                                 size='sm'
                                 className='mx-auto mb-2 w-5/12'
                             />
                             <Input
-                                {...register("userName")}
+                                {...register("Name")}
                                 isClearable
                                 isRequired
-                                type="text" label="Username"
+                                type="text" label="Name"
                                 size='sm'
                                 className='mx-auto mb-2 w-5/12'
                             />
                         </div>
-                        <Spacer y='6'/>
+                        <Spacer y='4'/>
                         <div className='flex flex-wrap mx-10'>
                             <Input
-                                {...register("phoneNumber")}
+                                {...register("PhoneNumber")}
                                 isRequired
-                                type="tel" label="Telephone"
+                                type="tel" label="Phone Number"
                                 size='sm'
                                 className='mx-auto mb-2 w-5/12'
                             />
                             <Input
-                                {...register("address")}
+                                {...register("Address")}
                                 isClearable
                                 isRequired
                                 type="text" label="Address"
@@ -97,7 +93,28 @@ export default function SignUp() {
                                 className='mx-auto mb-2 w-5/12'
                             />
                         </div>
-                        <Spacer y='6'/>
+                        <Spacer y='4'/>
+                        <div className='flex flex-wrap mx-10'>
+                            <Controller
+                                control={control}
+                                name={"Bio"}
+                                render={({ field: { value, onChange, ...field } }) => {
+                                    return (
+                                        <input
+                                            {...field}
+                                            value={value?.fileName}
+                                            onChange={(event) => {
+                                                onChange(event.target.files[0]);
+                                            }}
+                                            type="file" label="Bio"
+                                            size='sm'
+                                            className='mx-auto mb-2 w-11/12'
+                                        />
+                                    );
+                                }}
+                            />
+                        </div>
+                        <Spacer y='4'/>
                         <div className='flex flex-wrap mx-10'>
                             <Input
                                 {...register("email")}
@@ -108,41 +125,31 @@ export default function SignUp() {
                                 className='mx-auto mb-2 w-11/12'
                             />
                         </div>
-                        <Spacer y='6'/>
+                        <Spacer y='4'/>
                         <div className='flex flex-wrap mx-10'>
                             <Input
-                                {...register("password")}
+                                {...register("Experience")}
                                 isRequired
-                                endContent={
-                                    <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
-                                        {isVisible ? (
-                                            <IconEye className="text-xl text-default-400 pointer-events-none" />
-                                        ) : (
-                                            <IconEyeOff  className="text-xl text-default-400 pointer-events-none" />
-                                        )}
-                                    </button>
-                                }
-                                type={isVisible ? "text" : "password"}
-                                label="Password"
+                                label="Experience"
                                 size='sm'
                                 className='mx-auto mb-2 w-11/12'
                             />
                         </div>
                         {registerErrorMessage!==""? (
                             <>
-                                <Spacer y='4'/>
+                                <Spacer y='3'/>
                                 <div
                                     className="flex justify-center items-center bg-red-100 rounded-lg mx-auto mb-5 text-sm text-red-700 h-[50px] w-4/5"
                                     role="alert"
                                 >
                                     {registerErrorMessage}
                                 </div>
-                                <Spacer y='2'/>
+                                <Spacer y='1'/>
                             </>
-                        ):<Spacer y='9'/>}
+                        ):<Spacer y='7'/>}
                         <Button className='mx-auto w-3/5 bg-sky-400 font-bold text-l' type="submit">Register</Button>
-                        <Spacer y='6'/>
-                        <div className='mt-1 mb-5 text-xs'>
+                        <Spacer y='4'/>
+                        <div className='mt-2 mb-4 text-xs'>
                             Already have account? <Link href='/login' size="sm">Login here</Link>
                         </div>
                     </Card>

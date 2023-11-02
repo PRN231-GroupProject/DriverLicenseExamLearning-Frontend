@@ -7,6 +7,7 @@ import {examApi} from "@/api/examApi";
 export function useExam () {
     return {
         getExams: (id: bigint) =>
-            useSWR(`/exam/GetQuizByMember?$filter=licenseId eq ${id}`, examApi.getExams),
+            useSWR(`/exam/GetQuizByMember?$filter=licenseId eq ${id}&$expand=exams($filter=examId eq 1;$expand=questions)`
+                , examApi.getExams),
     }
 }

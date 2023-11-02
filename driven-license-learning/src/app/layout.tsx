@@ -6,6 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import {Providers} from "@/app/provider";
 import ReduxProvider from "@/redux/provider";
 import dynamic from "next/dynamic";
+import {ToastContainer} from "react-toastify";
 
 const PersistedReduxProvider = dynamic(
     () => import("@/redux/provider"),
@@ -31,6 +32,7 @@ export default function AuthenticateLayout({
             <Providers>
                 <div>
                     {children}
+                    <ToastContainer />
                 </div>
             </Providers>
         </ReduxProvider>

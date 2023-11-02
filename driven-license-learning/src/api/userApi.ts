@@ -25,4 +25,22 @@ export const userApi = {
             throw err;
         }
     },
+
+    registerMentor: async (account) => {
+        try {
+            console.log(account);
+            const res = await adminAxios.post(
+                `/user/mentor-regiser`,
+                account,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+                );
+            return res;
+        } catch (err) {
+            throw err;
+        }
+    },
 }
