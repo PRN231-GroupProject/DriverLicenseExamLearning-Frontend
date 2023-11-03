@@ -23,12 +23,14 @@ import {useForm} from "react-hook-form";
 import {userApi} from "@/api/userApi";
 import {toast} from "react-toastify";
 import {transactionApi} from "@/api/transactionApi";
+import {useRouter} from "next/navigation";
 
 export default function HistoryBookingPage() {
 
     const [ bookingId, setBookingId] = useState<number>(0)
+
+    const router = useRouter()
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    const {isOpen: isOpenDetail, onOpen: onOpenDetail, onOpenChange: onOpenChangeDetail} = useDisclosure();
 
     const form = useForm();
 
@@ -68,7 +70,7 @@ export default function HistoryBookingPage() {
     const user = useSelector(selectUser);
     const dispatch = useDispatch<AppDispatch>();
     const { getBookingByEmail } = useBooking();
-    const {data: bookings, isLoading} = getBookingByEmail(user.userAccountInfor?.email);
+    const {data: bookings, isLoading, error} = getBookingByEmail(user.userAccountInfor?.email);
     console.log(bookings)
 
     const columns= [
@@ -119,7 +121,7 @@ export default function HistoryBookingPage() {
                         <Tooltip content="Details">
                             <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                                 <button onClick={() => {
-                                    onOpenDetail()
+                                    router.push(`/historyBooking/${booking.BookingId}`)
                                 }}>
                                     <IconEye />
                                 </button>
@@ -150,9 +152,17 @@ export default function HistoryBookingPage() {
         )
     }
 
+    if (error) {
+        return (
+            <div className='content-center text-center mt-6'>
+                Not found history
+            </div>
+        )
+    }
+
     return (
         <>
-            <div className='w-3/5 mx-auto mt-3 mb-3'>
+            <div className='w-4/5 mx-auto mt-3 mb-3'>
                 <div className='text-center mb-3 font-semibold text-2xl'>
                     My Bookings History
                 </div>

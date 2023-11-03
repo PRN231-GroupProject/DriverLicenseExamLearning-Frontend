@@ -164,6 +164,14 @@ export default function SendLicenseApplicationPage() {
         )
     }
 
+    if (error|| licenseApplications==undefined) {
+        return (
+            <div className='content-center text-center mt-6'>
+                Can not use function
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className='h-screen' style={{ width: '100%'}}>

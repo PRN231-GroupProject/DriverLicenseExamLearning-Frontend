@@ -8,7 +8,7 @@ import {
     CardHeader,
     Divider, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader,
     Select,
-    SelectItem, Spacer, useDisclosure
+    SelectItem, Spacer, Spinner, useDisclosure
 } from "@nextui-org/react";
 import {useForm} from "react-hook-form";
 import {useCar} from "@/hooks/useCar";
@@ -29,9 +29,9 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
     const { getPackageById } = usePackage();
     const { getCars } = useCar();
     const { getMentors } = useUser();
-    const {data: packages} =getPackageById(params.packageId);
-    const {data: cars} =getCars();
-    const {data: mentors} =getMentors();
+    const {data: packages, isLoading, error} =getPackageById(params.packageId);
+    const {data: cars, isLoading: isLoadingCar, error: errorCar} =getCars();
+    const {data: mentors, isLoading: isLoadingMentor, error: errorMentor} =getMentors();
     const package1 = packages == undefined||packages[0]
 
 
@@ -111,6 +111,22 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
         }
     }, [mentors]);
 
+
+    if (isLoading && isLoadingCar && isLoadingMentor) {
+        return (
+            <div className='content-center text-center mt-6'>
+                <Spinner className='mt-6' />
+            </div>
+        )
+    }
+
+    if (error || errorCar || errorMentor) {
+        return (
+            <div className='content-center text-center mt-6'>
+                Can not use function
+            </div>
+        )
+    }
 
     return (
         <div>

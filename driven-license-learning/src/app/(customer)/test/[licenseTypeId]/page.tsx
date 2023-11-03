@@ -13,7 +13,6 @@ export default function TestDetailPage({ params }: { params: { licenseTypeId: bi
 
     const form = useForm({
         defaultValues:{
-            quizId : 0,
             answerDetails : [{}]
         },
         mode: 'onChange'
@@ -56,6 +55,9 @@ export default function TestDetailPage({ params }: { params: { licenseTypeId: bi
             <div className='w-4/5 gap-2 grid grid-cols-12  px-8 mt-4 mb-4 mx-auto t'>
                 <div className='col-span-12  sm:col-span-9 bg-slate-200 rounded-lg p-6'>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            {...register(`quizId`)}
+                            type='hidden' hidden value={exam[0]?.exams[0]?.ExamId}/>
                         {
                             exam[0]?.exams[0]?.questions?.map((q,index) => (
                                 <div key = {index} className='mb-6 mt-3'>

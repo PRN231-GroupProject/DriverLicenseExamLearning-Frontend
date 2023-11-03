@@ -45,7 +45,7 @@ function Navigation () {
     }
 
     const handleTransaction = () => {
-        router.push(`/historyTransaction`)
+        router.push(`/history-transaction`)
     }
 
     const handleSendLicense = () => {
