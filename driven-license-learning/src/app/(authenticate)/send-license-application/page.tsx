@@ -190,7 +190,7 @@ export default function SendLicenseApplicationPage() {
                                 </TableColumn>
                             )}
                         </TableHeader>
-                        <TableBody items={licenseApplications} emptyContent={"No rows to display."}>
+                        <TableBody items={licenseApplications as []} emptyContent={"No rows to display."}>
                             {(item) => (
                                 <TableRow key={item.licenseTypeID}>
                                     {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

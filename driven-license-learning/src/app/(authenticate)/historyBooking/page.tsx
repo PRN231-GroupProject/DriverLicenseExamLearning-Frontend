@@ -25,6 +25,15 @@ import {toast} from "react-toastify";
 import {transactionApi} from "@/api/transactionApi";
 import {useRouter} from "next/navigation";
 
+
+export interface Bookings {
+    Mentor:    [];
+    Package:    [];
+    BookingId:  number;
+    CreateDate: Date;
+    Status:     string;
+}
+
 export default function HistoryBookingPage() {
 
     const [ bookingId, setBookingId] = useState<number>(0)
@@ -71,8 +80,6 @@ export default function HistoryBookingPage() {
     const dispatch = useDispatch<AppDispatch>();
     const { getBookingByEmail } = useBooking();
     const {data: bookings, isLoading, error} = getBookingByEmail(user.userAccountInfor?.email);
-    console.log(bookings)
-
     const columns= [
         {name: "BookingId", uid: "BookingId"},
         {name: "CreateDate", uid: "CreateDate"},
@@ -174,7 +181,7 @@ export default function HistoryBookingPage() {
                             </TableColumn>
                         )}
                     </TableHeader>
-                    <TableBody items={bookings} emptyContent={"No rows to display."}>
+                    <TableBody items={bookings as Bookings[]} emptyContent={"No rows to display."}>
                         {(item) => (
                             <TableRow key={item.BookingId}>
                                 {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
