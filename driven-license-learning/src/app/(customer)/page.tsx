@@ -1,6 +1,5 @@
 'use client'
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
-import CourseBox from "@/components/Courses/CourseBox";
 import {usePackage} from "@/hooks/usePackage";
 
 export default function HomePage() {

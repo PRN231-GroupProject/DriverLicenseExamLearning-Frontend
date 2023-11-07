@@ -24,8 +24,8 @@ function Navigation () {
     const dispatch = useDispatch<AppDispatch>();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuItems = [
-        "Courses",
-        "Test",
+        "courses",
+        "test",
     ];
 
     const handleLogout = async () => {
@@ -46,6 +46,10 @@ function Navigation () {
 
     const handleTransaction = () => {
         router.push(`/history-transaction`)
+    }
+
+    const handleExam = () => {
+        router.push(`/history-exam`)
     }
 
     const handleSendLicense = () => {
@@ -79,8 +83,18 @@ function Navigation () {
                                 </Link>
                             </NavbarItem>
                             <NavbarItem>
-                                <Link href="/test" aria-current="page" color="secondary">
-                                    Test
+                                <Link href="/test/1" aria-current="page" color="secondary">
+                                    Trial Test A1
+                                </Link>
+                            </NavbarItem>
+                            <NavbarItem>
+                                <Link href="/test/2" aria-current="page" color="secondary">
+                                    Trial Test A2
+                                </Link>
+                            </NavbarItem>
+                            <NavbarItem>
+                                <Link href="/test/3" aria-current="page" color="secondary">
+                                    Trial Test A3
                                 </Link>
                             </NavbarItem>
                         </>
@@ -102,37 +116,69 @@ function Navigation () {
                                 />
                             </DropdownTrigger>
 
-                                {
-                                    user.userAccountInfor?.role?.roleName == "Member" ?
-                                    <DropdownMenu aria-label="Profile Actions" variant="flat">
-                                        <DropdownItem key="profile" textValue className="h-14 gap-2">
-                                            <p className="font-semibold">{user.userAccountInfor.email}</p>
-                                        </DropdownItem>
-                                        <DropdownItem key="history" onClick={() => handleHistory()}>
-                                            History booking
-                                        </DropdownItem>
-                                        <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
-                                            History transaction
-                                        </DropdownItem>
-                                        <DropdownItem key="license_application" onClick={() => handleSendLicense()}>
-                                            Send license application
-                                        </DropdownItem>
-                                        <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
-                                        <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
-                                            Log Out
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                        :
-                                        <DropdownMenu aria-label="Profile Actions" variant="flat">
-                                            <DropdownItem key="profile" textValue className="h-14 gap-2">
-                                                <p className="font-semibold">{user.userAccountInfor.email}</p>
-                                            </DropdownItem>
-                                            <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
-                                            <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
-                                                Log Out
-                                            </DropdownItem>
-                                        </DropdownMenu>
-                                }
+                            <DropdownMenu aria-label="Profile Actions" variant="flat">
+                                <DropdownItem key="profile" textValue className="h-14 gap-2">
+                                    <p className="font-semibold">{user.userAccountInfor.email}</p>
+                                </DropdownItem>
+                                {user.userAccountInfor?.role?.roleName === "Member" ?<DropdownItem key="history" onClick={() => handleHistory()}>
+                                    Booking History
+                                </DropdownItem>: null}
+                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
+                                    Transaction History
+                                </DropdownItem>: null}
+                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleExam()}>
+                                    Exam History
+                                </DropdownItem>: null}
+                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="license_application" onClick={() => handleSendLicense()}>
+                                    Send license application
+                                </DropdownItem> : null}
+                                {user.userAccountInfor?.role?.roleName === "Member" ?
+                                    <DropdownItem key="mentor-signup" onClick={() => router.push('/mentor-signup')}>
+                                        Apply to mentor
+                                    </DropdownItem>: null}
+                                <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>
+                                <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>
+                                    Log Out
+                                </DropdownItem>
+                            </DropdownMenu>
+                                {/*{*/}
+
+                                {/*    user.userAccountInfor?.role?.roleName === "Member" ?*/}
+
+                                {/*        <DropdownMenu aria-label="Profile Actions" variant="flat">*/}
+                                {/*            <DropdownItem key="profile" textValue className="h-14 gap-2">*/}
+                                {/*                <p className="font-semibold">{user.userAccountInfor.email}</p>*/}
+                                {/*            </DropdownItem>*/}
+                                {/*            <DropdownItem key="history" onClick={() => handleHistory()}>*/}
+                                {/*                History booking*/}
+                                {/*            </DropdownItem>*/}
+                                {/*            <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>*/}
+                                {/*                History transaction*/}
+                                {/*            </DropdownItem>*/}
+                                {/*            <DropdownItem key="license_application" onClick={() => handleSendLicense()}>*/}
+                                {/*                Send license application*/}
+                                {/*            </DropdownItem>*/}
+                                {/*            <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>*/}
+                                {/*            <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>*/}
+                                {/*                Log Out*/}
+                                {/*            </DropdownItem>*/}
+                                {/*        </DropdownMenu>*/}
+
+                                {/*        :*/}
+
+                                {/*        <DropdownMenu aria-label="Profile Actions" variant="flat">*/}
+                                {/*            <DropdownItem key="profile" textValue className="h-14 gap-2">*/}
+                                {/*                <p className="font-semibold">{user.userAccountInfor.email}</p>*/}
+                                {/*            </DropdownItem>*/}
+                                {/*            <DropdownItem key="team_settings" onClick={() => handleProfile()} textValue>My Profile</DropdownItem>*/}
+                                {/*            <DropdownItem key="logout" onClick={() => handleLogout()} color="danger" textValue>*/}
+                                {/*                Log Out*/}
+                                {/*            </DropdownItem>*/}
+                                {/*        </DropdownMenu>*/}
+
+
+                                {/*}*/}
+
                         </Dropdown>
                     </NavbarContent>
                     :
@@ -157,9 +203,9 @@ function Navigation () {
                         <Link
                             className="w-full"
                             color={
-                                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                                'foreground'
                             }
-                            href="#"
+                            href={`/${item}`}
                             size="lg"
                         >
                             {item}

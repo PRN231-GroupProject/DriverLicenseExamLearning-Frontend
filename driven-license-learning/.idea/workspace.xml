@@ -4,12 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="view tracking detail of booking for customer">
+    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="fix sthg">
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/[examResultId]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useTransaction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/examApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/examApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/licenseTypeApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/licenseTypeApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/transactionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/transactionApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/[bookingId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/[bookingId]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/send-license-application/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/send-license-application/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/courses/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/[licenseTypeId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/[licenseTypeId]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LandingPage/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LandingPage/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Test/QuestionBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Test/QuizForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useExam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useExam.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/usePackage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePackage.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,36 +51,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src/app/(authenticate)/send-license-application&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src/app/(authenticate)/history-exam",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)\history-exam" />
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)\history-transaction" />
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\api" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)\send-license-application" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(mentor)" />
-      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app" />
-      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src" />
-      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(customer)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\api" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(customer)\transaction\[bookingId]" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)\profile\[userId]" />
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(customer)" />
@@ -147,7 +171,11 @@
       <workItem from="1698944472068" duration="33000" />
       <workItem from="1698944521875" duration="476000" />
       <workItem from="1698945020109" duration="3453000" />
-      <workItem from="1698996475235" duration="6560000" />
+      <workItem from="1698996475235" duration="16228000" />
+      <workItem from="1699177378230" duration="10778000" />
+      <workItem from="1699199479901" duration="11177000" />
+      <workItem from="1699251105973" duration="10057000" />
+      <workItem from="1699322955140" duration="5709000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1697994390785</created>
@@ -226,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699001751798</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix sthg">
+      <created>1699029830435</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699029830435</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +296,8 @@
     <MESSAGE value="FE add sthg" />
     <MESSAGE value="customer refund package and send/view license application" />
     <MESSAGE value="view tracking detail of booking for customer" />
-    <option name="LAST_COMMIT_MESSAGE" value="view tracking detail of booking for customer" />
+    <MESSAGE value="fix sthg" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix sthg" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

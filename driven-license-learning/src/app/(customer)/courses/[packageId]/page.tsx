@@ -36,7 +36,9 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
 
 
     const [ optionCars, setOptionCars] = useState([])
+    console.log(optionCars)
     const [ optionMentors, setOptionMentors] = useState([])
+    console.log(optionMentors)
 
     const [ carId, setCarId] = useState(0)
     const [ mentorId, setMentorId] = useState(0)
@@ -163,6 +165,7 @@ export default function CourseDetailPage({ params }: { params: { packageId: bigi
                         <Divider className="absolute z-10 top-16"/>
                         <CardBody className="absolute z-10 top-16 flex-col justify-center content-center flex-wrap h-2/3">
                             <Select
+                                textValue
                                 items={optionCars}
                                 label="Car"
                                 placeholder="Select a car"

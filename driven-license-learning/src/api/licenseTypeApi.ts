@@ -28,4 +28,22 @@ export const licenseTypeApi = {
         }
     },
 
+    updateLicenseApplication: async (licenseApplication: number, body: object) => {
+        try {
+            console.log(body);
+            const res = await adminAxios.post(
+                `/license_application/Update?licenseApplication=${licenseApplication}`,
+                body,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
+            return res;
+        } catch (err) {
+            throw err;
+        }
+    },
+
 }

@@ -2,6 +2,9 @@ import adminAxios from "./AxiosAdmin";
 
 export const transactionApi = {
 
+    getTransaction: (url) => {
+        return adminAxios.get(url);
+    },
     postTransaction: async (bookingId) => {
         console.log(bookingId)
         try {

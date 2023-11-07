@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Card,
     Spacer,
@@ -16,6 +16,10 @@ import {useDispatch} from "react-redux";
 import {toast} from "react-toastify";
 
 export default function MentorSignUp() {
+
+    const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState()
+
     const router = useRouter()
     const { register, handleSubmit, control } = useForm();
     const [registerErrorMessage, setRegisterErrorMessage] = useState("");
@@ -38,73 +42,59 @@ export default function MentorSignUp() {
             try {
                 const respone = await userApi.registerMentor(input).then(() => {
                     notify("Apply sucessfully!", 'success')
-                    router.push(`/login`)
                 })
                 console.log(respone)
             } catch (error) {
-                console.log(error.response.data.Message);
-                setRegisterErrorMessage(error.response.data.message)
+                console.log(error);
+                notify("Error!",'error')
             }
         };
         fetchUser();
     };
 
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        // I've kept this example simple by using the first image instead of multiple
+        setSelectedFile(e.target.files[0])
+    }
+
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        // free memory when ever this component is unmounted
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile])
+
     return (
         <div>
-            <div className='flex flex-wrap justify-center content-center h-screen bg-gradient-to-r from-purple-500 to-pink-500' style={{ width: '100%'}}>
+            <div className='flex flex-wrap justify-center content-center ' style={{ width: '100%'}}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Card isFooterBlurred className="w-[550px] h-[600px] text-center">
+                    <Card isFooterBlurred className="w-[800px] mt-6 mb-6 text-center p-6">
                         <Spacer y='5'/>
-                        <div className='mt-2 mb-2 font-bold text-2xl'>Sign Up</div>
+                        <div className='mb-2 font-bold text-2xl'>Appy to mentor</div>
                         <Spacer y='7'/>
-                        <div className='flex flex-wrap mx-10'>
-                            <Input
-                                {...register("MentorName")}
-                                isClearable
-                                isRequired
-                                type="text" label="Mentor Name"
-                                size='sm'
-                                className='mx-auto mb-2 w-5/12'
-                            />
-                            <Input
-                                {...register("Name")}
-                                isClearable
-                                isRequired
-                                type="text" label="Name"
-                                size='sm'
-                                className='mx-auto mb-2 w-5/12'
-                            />
-                        </div>
-                        <Spacer y='4'/>
-                        <div className='flex flex-wrap mx-10'>
-                            <Input
-                                {...register("PhoneNumber")}
-                                isRequired
-                                type="tel" label="Phone Number"
-                                size='sm'
-                                className='mx-auto mb-2 w-5/12'
-                            />
-                            <Input
-                                {...register("Address")}
-                                isClearable
-                                isRequired
-                                type="text" label="Address"
-                                size='sm'
-                                className='mx-auto mb-2 w-5/12'
-                            />
-                        </div>
-                        <Spacer y='4'/>
                         <div className='flex flex-wrap mx-10'>
                             <Controller
                                 control={control}
-                                name={"Bio"}
+                                name="Bio"
                                 render={({ field: { value, onChange, ...field } }) => {
                                     return (
                                         <input
                                             {...field}
                                             value={value?.fileName}
                                             onChange={(event) => {
-                                                onChange(event.target.files[0]);
+                                                onChange(event.target?.files[0]);
+                                                onSelectFile(event)
                                             }}
                                             type="file" label="Bio"
                                             size='sm'
@@ -114,17 +104,7 @@ export default function MentorSignUp() {
                                 }}
                             />
                         </div>
-                        <Spacer y='4'/>
-                        <div className='flex flex-wrap mx-10'>
-                            <Input
-                                {...register("email")}
-                                isClearable
-                                isRequired
-                                type="email" label="Email"
-                                size='sm'
-                                className='mx-auto mb-2 w-11/12'
-                            />
-                        </div>
+                        {selectedFile &&  <img src={preview} /> }
                         <Spacer y='4'/>
                         <div className='flex flex-wrap mx-10'>
                             <Input
@@ -135,23 +115,9 @@ export default function MentorSignUp() {
                                 className='mx-auto mb-2 w-11/12'
                             />
                         </div>
-                        {registerErrorMessage!==""? (
-                            <>
-                                <Spacer y='3'/>
-                                <div
-                                    className="flex justify-center items-center bg-red-100 rounded-lg mx-auto mb-5 text-sm text-red-700 h-[50px] w-4/5"
-                                    role="alert"
-                                >
-                                    {registerErrorMessage}
-                                </div>
-                                <Spacer y='1'/>
-                            </>
-                        ):<Spacer y='7'/>}
+                        <Spacer y='7'/>
                         <Button className='mx-auto w-3/5 bg-sky-400 font-bold text-l' type="submit">Register</Button>
-                        <Spacer y='4'/>
-                        <div className='mt-2 mb-4 text-xs'>
-                            Already have account? <Link href='/login' size="sm">Login here</Link>
-                        </div>
+                        <Spacer y='9'/>
                     </Card>
                 </form>
             </div>

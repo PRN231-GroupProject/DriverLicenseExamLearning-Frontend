@@ -127,9 +127,6 @@ export default function Login() {
                         <div className='mt-1 mb-2 text-xs'>
                             Not have account yet? <Link className='text-xs' href='/signup' size="sm">Signup here</Link>
                         </div>
-                        <div className='mt-1 mb-5 text-xs'>
-                            You want to become a mentor? <Link className='text-xs' href='/mentor-signup' size="sm">Apply here</Link>
-                        </div>
                     </Card>
                 </form>
             </div>

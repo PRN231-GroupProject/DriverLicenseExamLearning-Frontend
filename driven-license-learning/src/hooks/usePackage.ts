@@ -1,7 +1,6 @@
 'use client'
 import useSWR from "swr";
 import {packageApi} from "@/api/packageApi";
-import AxiosAdmin from "@/api/AxiosAdmin";
 
 export function usePackage () {
     return {
@@ -12,6 +11,11 @@ export function usePackage () {
             useSWR(`/package?$filter=packageId%20eq%20${id}`, packageApi.getPackage),
 
         getPackageByLicenseType: (name: string) =>
-            useSWR(`/package?$filter=licenseType/any(lt: lt/licenseName eq '${name}')`, packageApi.getPackage)
+            useSWR(`/package?$filter=licenseType/any(lt: lt/licenseName eq '${name}')`, packageApi.getPackage),
+
+        getPackagesFilter: (name: string) =>
+            useSWR(
+                name===""?"/package":`/package?$filter=licenseType/any(lt: lt/licenseName eq '${name}')`, packageApi.getPackage),
+
     }
 }

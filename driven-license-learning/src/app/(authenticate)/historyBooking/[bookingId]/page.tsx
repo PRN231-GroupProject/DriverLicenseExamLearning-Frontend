@@ -45,13 +45,13 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
     const {data: trackings, isLoading, error } = getTrackingsByBookingId(params.bookingId)
 
     const columns= [
-        {name: "trackingId", uid: "trackingId"},
-        {name: "trackingDate", uid: "trackingDate"},
-        {name: "note", uid: "note"},
-        {name: "processing", uid: "processing"},
-        {name: "status", uid: "status"},
-        {name: "total", uid: "total"},
-        {name: "type", uid: "type"},
+        {name: "Tracking Id", uid: "trackingId"},
+        {name: "Tracking Date", uid: "trackingDate"},
+        {name: "Note", uid: "note"},
+        {name: "Processing", uid: "processing"},
+        {name: "Status", uid: "status"},
+        {name: "Total", uid: "total"},
+        {name: "Type", uid: "type"},
         {name: "Actions", uid: "Actions"},
     ];
 
@@ -144,7 +144,7 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
                     Tracking Details
                 </div>
                 <Table aria-label="Example table with custom cells">
-                    <TableHeader columns={columns as Columns[]}>
+                    <TableHeader columns={columns as any}>
                         {(column) => (
                             <TableColumn key={column.uid}>
                                 {column.name}

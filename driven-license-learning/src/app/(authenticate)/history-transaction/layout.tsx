@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '../globals.css'
 import Navigation from "@/components/LandingPage/Navigation";
 import React from "react";
 
+import {SkeletonTheme} from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
-import {ToastContainer} from "react-toastify";
+import {Providers} from "@/app/provider";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,15 +15,14 @@ export const metadata: Metadata = {
 }
 
 export default function CustomerLayout({
-                                       children,
-                                   }: {
+                                           children,
+                                       }: {
     children: React.ReactNode
 }) {
     return (
-            <div>
-                <Navigation/>
-                {children}
-                <ToastContainer />
-            </div>
+        <div>
+            <Navigation/>
+            {children}
+        </div>
     )
 }
