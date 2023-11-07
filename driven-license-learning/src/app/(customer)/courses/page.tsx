@@ -7,12 +7,7 @@ import {useForm} from "react-hook-form";
 
 export default function CoursesPage() {
 
-<<<<<<< HEAD
-    
-    const [ packageTypes, setPackageTypes ] = useState([
-=======
     const [ licenseType, setLicenseType ] = useState([
->>>>>>> 881f0151dde78b5bb6cb6a29a32d8fe945aec8d8
         {
             key : "",
             value : "None",
