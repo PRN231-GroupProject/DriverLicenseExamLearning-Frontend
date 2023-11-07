@@ -1,12 +1,7 @@
 'use client'
-import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import {Button, cn, Radio, RadioGroup, Spinner} from "@nextui-org/react";
 import {useExam} from "@/hooks/useExam";
 import React, {useState} from "react";
-import {useForm, Controller} from "react-hook-form";
-import {Input} from "@mui/material";
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS} from "@/redux/features/userSlice";
-import {userApi} from "@/api/userApi";
 import {QuizForm} from "@/components/Test/QuizForm";
 import {useRouter, useSearchParams} from "next/navigation";
 

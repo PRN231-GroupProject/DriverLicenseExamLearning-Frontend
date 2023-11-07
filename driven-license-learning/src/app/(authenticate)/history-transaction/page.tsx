@@ -33,30 +33,15 @@ export interface Transaction {
 export default function HistoryTransactionPage() {
 
     const [ selectedTransaction, setSelectedTransaction ] = useState<Transaction>()
-    const router = useRouter()
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     const form = useForm();
 
     const {
-        register,
-        handleSubmit,
         formState: { errors },
     } = form;
 
-    const notify = React.useCallback((message,type) => {
-        toast[type](message,{
-            position: "top-right",
-            autoClose: 5000,// Set it to false directly
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            theme: "light",
-        });
-    }, []);
-
     const user = useSelector(selectUser);
-    const dispatch = useDispatch<AppDispatch>();
     const { getTransactions } = useTransaction();
     const {data: transactions, isLoading, error} = getTransactions(user.userAccountInfor?.userId);
     console.log(transactions)

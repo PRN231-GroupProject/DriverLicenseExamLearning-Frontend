@@ -19,9 +19,6 @@ export default function TestPage() {
     });
 
     const {
-        control,
-        register,
-        handleSubmit,
         formState: { errors },
     } = form;
 

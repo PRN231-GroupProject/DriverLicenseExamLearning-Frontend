@@ -5,14 +5,10 @@ import {
     Card,
     Spacer,
     Button,
-    Input,
-    Link
+    Input
 } from '@nextui-org/react';
 import {useForm, Controller} from "react-hook-form";
-import {AppDispatch} from "@/redux/store";
 import {userApi} from "@/api/userApi";
-import {useRouter} from "next/navigation";
-import {useDispatch} from "react-redux";
 import {toast} from "react-toastify";
 
 export default function MentorSignUp() {
@@ -20,10 +16,7 @@ export default function MentorSignUp() {
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
 
-    const router = useRouter()
     const { register, handleSubmit, control } = useForm();
-    const [registerErrorMessage, setRegisterErrorMessage] = useState("");
-    const dispatch = useDispatch<AppDispatch>();
 
     const notify = React.useCallback((message,type) => {
         toast[type](message,{

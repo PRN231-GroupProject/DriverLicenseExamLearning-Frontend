@@ -12,7 +12,7 @@ import {
     TableRow,
     Tooltip, useDisclosure
 } from "@nextui-org/react";
-import { IconReceiptRefund , IconEye } from '@tabler/icons-react';
+import { IconEye } from '@tabler/icons-react';
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
 

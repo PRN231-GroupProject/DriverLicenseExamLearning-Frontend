@@ -14,7 +14,6 @@ import {
 import { IconEye } from '@tabler/icons-react';
 import {useRouter, useSearchParams} from "next/navigation";
 import {useExam} from "@/hooks/useExam";
-import {Transaction} from "@/app/(authenticate)/history-transaction/page";
 
 type TProp = {
     label?: number;

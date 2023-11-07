@@ -4,35 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="fix sthg">
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/[examResultId]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useTransaction.ts" afterDir="false" />
+    <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="con phan exam history details nua la xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/examApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/examApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/licenseTypeApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/licenseTypeApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/transactionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/transactionApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/[bookingId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/[bookingId]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/historyBooking/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/mentor-signup/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/send-license-application/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/send-license-application/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/[packageId]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/courses/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/courses/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/[licenseTypeId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/[licenseTypeId]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LandingPage/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LandingPage/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Test/QuestionBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Test/QuizForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useExam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useExam.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/usePackage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePackage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +151,7 @@
       <workItem from="1699177378230" duration="10778000" />
       <workItem from="1699199479901" duration="11177000" />
       <workItem from="1699251105973" duration="10057000" />
-      <workItem from="1699322955140" duration="5709000" />
+      <workItem from="1699322955140" duration="6699000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1697994390785</created>
@@ -261,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699029830435</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="con phan exam history details nua la xong">
+      <created>1699359625793</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699359625793</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +280,8 @@
     <MESSAGE value="customer refund package and send/view license application" />
     <MESSAGE value="view tracking detail of booking for customer" />
     <MESSAGE value="fix sthg" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix sthg" />
+    <MESSAGE value="con phan exam history details nua la xong" />
+    <option name="LAST_COMMIT_MESSAGE" value="con phan exam history details nua la xong" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
