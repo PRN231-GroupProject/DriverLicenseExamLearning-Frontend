@@ -132,7 +132,7 @@ export const QuizForm = (props) => {
                                                 label= {"Question "+ (index+1) + ": " +q.Title}
                                                 classNames={{
                                                     base:cn(
-                                                        "m-0 bg-content1 hover:bg-content2 ",
+                                                        "m-0 bg-content1 hover:bg-content2 font-semibold ",
                                                         "cursor-pointer rounded-lg gap-4 p-4 border-1 border-transparent",
                                                     )
                                                 }}

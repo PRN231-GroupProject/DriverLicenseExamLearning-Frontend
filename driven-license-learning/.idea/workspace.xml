@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3ca7237-9a6f-4822-8734-c3703f073bb0" name="Changes" comment="con phan exam history details nua la xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-transaction/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(customer)/test/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(customer)/test/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/[examResultId]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(authenticate)/history-exam/[examResultId]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Test/QuizForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Test/QuizForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useExam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useExam.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,27 +27,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src/app/(authenticate)/history-exam",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "show.migrate.to.gradle.popup": "false",
-    "ts.external.directory.path": "C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ACER/Dropbox/PC/Desktop/DriverLicenseExamLearning-Frontend/driven-license-learning/src/app/(authenticate)/history-exam&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ACER\\Dropbox\\PC\\Desktop\\DriverLicenseExamLearning-Frontend\\driven-license-learning\\node_modules\\typescript\\lib&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ACER\Dropbox\PC\Desktop\DriverLicenseExamLearning-Frontend\driven-license-learning\src\app\(authenticate)\history-exam" />
@@ -151,7 +151,7 @@
       <workItem from="1699177378230" duration="10778000" />
       <workItem from="1699199479901" duration="11177000" />
       <workItem from="1699251105973" duration="10057000" />
-      <workItem from="1699322955140" duration="6699000" />
+      <workItem from="1699322955140" duration="11008000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1697994390785</created>
@@ -244,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699359625793</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="con phan exam history details nua la xong">
+      <created>1699360762522</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699360762522</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

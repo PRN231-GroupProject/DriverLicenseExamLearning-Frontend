@@ -24,5 +24,9 @@ export function useExam () {
                     :
                     `/exam/QuizHistory?licenseTypeID=${licenseId}`
                 , examApi.getExams),
+
+        getExamHistoryDetailFilter: (examresultId: number) =>
+            useSWR(`/exam/QuizHistoryDetail?examresultId=${examresultId}`
+                , examApi.getExams),
     }
 }
