@@ -9,7 +9,8 @@ export const userApi = {
     login: async (account) => {
         try {
             const res = await adminAxios.post(`/user/login`, account);
-            console.log(res)
+            var check = localStorage.setItem('userData', JSON.stringify(res))
+            console.log(check)
             return res;
         } catch (err) {
             throw err;
