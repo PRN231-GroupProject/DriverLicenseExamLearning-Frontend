@@ -31,6 +31,7 @@ function Navigation () {
     const handleLogout = async () => {
         const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         localStorage.removeItem("token");
+        localStorage.removeItem("userData");
         await delay(500);
         router.push('/login')
         dispatch(USER_LOGOUT_SUCCESS());
@@ -66,19 +67,22 @@ function Navigation () {
             </NavbarContent>
 
             <NavbarBrand>
-                <a href='/'  className="font-bold text-inherit text-decoration-none">Driven License Learning</a>
+                <a href='/'  className="text-2xl font-bold bg-gradient-to-tr from-[#1488CC] to-[#2B32B2] bg-clip-text text-transparent hover:cursor-pointer">Driver License Exam Learning</a>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" as='div' justify="center">
                 {
                     user.userAccountInfor?.role?.roleName == "Mentor" ?
                         <NavbarItem>
-                            <Link color="secondary" aria-current="page" href="/tracking">
+                            <Link aria-current="page" href="/tracking" className="list-none  hover:text-indigo-600">
                                 Tracking
+                            </Link>
+                            <Link aria-current="page" href="/salary" className="list-none px-6 hover:text-indigo-600">
+                                Salary
                             </Link>
                         </NavbarItem> :
                         <>
                             <NavbarItem>
-                                <Link color="secondary" aria-current="page" href="/courses">
+                                <Link aria-current="page" href="/courses" className="list-none  hover:text-indigo-600">
                                     Courses
                                 </Link>
                             </NavbarItem>
@@ -108,7 +112,7 @@ function Navigation () {
                                 <Avatar
                                     isBordered
                                     as="button"
-                                    classNames='opacity-100'
+                                    className='opacity-100'
                                     color="secondary"
                                     name="Jason Hughes"
                                     size="sm"
@@ -184,12 +188,12 @@ function Navigation () {
                     :
                     <NavbarContent as="div" justify="end">
                         <NavbarItem>
-                            <Link color="secondary" aria-current="page" href="/login">
+                            <Link color="secondary" className="text-text-gray-600  py-2 hover:cursor-pointer hover:text-indigo-600" aria-current="page" href="/login">
                                 Login
                             </Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="/signup" aria-current="page" color="secondary">
+                            <Link href="/signup" className="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-indigo-600 to-green-600 hover:shadow-lg" aria-current="page" color="secondary">
                                 Register
                             </Link>
                         </NavbarItem>

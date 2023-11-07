@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 }
 
 export default function CustomerLayout({
-                                       children,
+                                children,
                                    }: {
     children: React.ReactNode
 }) {
