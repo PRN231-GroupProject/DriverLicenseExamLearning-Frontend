@@ -5,6 +5,10 @@ import React, { useEffect, useState } from "react";
 import img from "../../../public/booking.jpg";
 import Image from "next/image";
 import { Box, Button, Modal, Typography } from "@mui/material";
+import { mentorApi } from "@/api/mentorApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 type bookingList = {
   bookingId: number;
@@ -60,6 +64,7 @@ type bookingList = {
     }
   ];
 };
+
 export default function BookingCard(props) {
   console.log(props.bookingPackage);
   const [mentorId, setMentorId] = useState<string | null>(null);
@@ -80,14 +85,36 @@ export default function BookingCard(props) {
   }, []);
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (bookingId) => {
+    setBookingId(bookingId);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
+
+  const [bookingId, setBookingId] = useState(0);
+  const [note, setNote] = useState("");
+  const [processing, setProcessing] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await mentorApi.postTrackingByBookingId(
+        bookingId,
+        note,
+        processing
+      );
+      toast.success("Tracking created successfully");
+      console.log("Tracking created successfully:", response);
+    } catch (error) {
+      console.error("Error creating tracking:", error);
+    }
+  };
 
   const id = props.bookingId;
   const status = props.status;
   const dataMe = props;
   const data = dataMe.bookingPackage;
-  console.log(dataMe);
   return (
     <div>
       {data && data != null ? (
@@ -95,13 +122,20 @@ export default function BookingCard(props) {
           <div>
             {data?.map((r, index) => (
               <div>
-                <Button onClick={handleOpen}>
+                <Button onClick={() => handleOpen(id)}>
                   <div className="flex flex-col shadow-2xl p-5">
                     <Image src={img} alt="booking img" />
                     <div>{id}</div>
                     <div>{r.packageName}</div>
                     <div>{r.price} VND</div>
-                    <div>{r.numberOfKmOrDays}{" "}{r.packageTypeId === 1 ? 'Km' : r.packageTypeId === 2 ? 'Days' : ''}</div>
+                    <div>
+                      {r.numberOfKmOrDays}{" "}
+                      {r.packageTypeId === 1
+                        ? "Km"
+                        : r.packageTypeId === 2
+                        ? "Days"
+                        : ""}
+                    </div>
                     <div>{r.description}</div>
                     <div>{status}</div>
                   </div>
@@ -114,10 +148,35 @@ export default function BookingCard(props) {
                 >
                   <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-400 p-6 bg-gray-200 border-2 shadow-md">
                     <Typography>
-                      <h1 className="font-bold text-3xl">Create tracking</h1>
+                      <h1 className="font-bold text-3xl text-center pb-5">Create tracking</h1>
                     </Typography>
                     <Typography>
-                      <form></form>
+                    <form onSubmit={handleSubmit} className="px-4">
+                    <div className="mb-4">
+                        <label htmlFor="note" className="text-gray-600">Note:</label>
+                        <input
+                        id="note"
+                        type="text"
+                        value={note}
+                        onChange={(e) => setNote(e.target.value)}
+                        required
+                        className="border rounded p-2 w-full focus:outline-none focus:ring focus:border-blue-300"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="processing" className=" text-gray-600">Processing:</label>
+                        <input
+                        id="processing"
+                        type="number"
+                        value={processing}
+                        onChange={(e) => setProcessing(e.target.value)}
+                        required
+                        className="border rounded p-2 w-full focus:outline-none focus:ring focus:border-blue-300"
+                        />
+                    </div>
+                    <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">Create Tracking</button>
+                    </form>
+
                     </Typography>
                   </Box>
                 </Modal>
