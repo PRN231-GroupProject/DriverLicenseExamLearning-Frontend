@@ -13,7 +13,4 @@ export const mentorApi = {
         return adminAxios.get(url);
     },
 
-    postTracking: await (bookingId, note, processing) => {
-
-    }
 }

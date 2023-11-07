@@ -7,24 +7,32 @@ import {useForm} from "react-hook-form";
 
 export default function CoursesPage() {
 
+<<<<<<< HEAD
     
     const [ packageTypes, setPackageTypes ] = useState([
+=======
+    const [ licenseType, setLicenseType ] = useState([
+>>>>>>> 881f0151dde78b5bb6cb6a29a32d8fe945aec8d8
         {
-            key : 0,
+            key : "",
             value : "None",
         },
         {
-            key : 1,
-            value : "Km",
+            key : "A1",
+            value : "A1",
         },
         {
-            key : 2,
-            value : "Days",
+            key : "A2",
+            value : "A2",
+        },
+        {
+            key : "B1",
+            value : "B1",
         }
     ])
-    const [ packageTypeId, setPackageTypeId ] = useState(0)
-    const { getPackages, getPackageByPackageType } = usePackage();
-    const {data: packages, error} = packageTypeId==0?getPackages():getPackageByPackageType(packageTypeId);
+    const [ licenseName, setLicenseName ] = useState("")
+    const { getPackages, getPackageByLicenseType } = usePackage();
+    const {data: packages, error} = licenseName==""?getPackages():getPackageByLicenseType(licenseName);
 
     const form = useForm();
 
@@ -35,20 +43,21 @@ export default function CoursesPage() {
     } = form;
 
     const handlePackageType = (e) => {
-        setPackageTypeId(e.target.value);
+        setLicenseName(e.target.value);
+        console.log(licenseName)
     };
 
     return (
         <>
             <div className='content-center text-center'>
                 <Select
-                    items={packageTypes}
+                    items={licenseType}
                     label="Package Types"
                     placeholder="Select a package"
                     className="max-w-xs mx-auto mt-3 w-full"
                     onChange={handlePackageType}
                 >
-                    {(packageType) => <SelectItem key={packageType.key} value={packageType.key}>{packageType.value}</SelectItem>}
+                    {(packageType) => <SelectItem key={packageType.key} value={packageType.value}>{packageType.value}</SelectItem>}
                 </Select>
             </div>
             <div className='w-80 gap-2 px-8 t' style={{ width: '100%'}}>
@@ -62,6 +71,7 @@ export default function CoursesPage() {
                                 packageName ={r.packageName}
                                 description = {r.description}
                                 packageTypes = {r.packageTypes}
+                                licenseName = {r.licenseType==undefined||r.licenseType[0].licenseName}
                                 price = {r.price}
                             />
                             <div className='col-span-12 sm:col-span-2'></div>

@@ -12,6 +12,9 @@ export function usePackage () {
             useSWR(`/package?$filter=packageId%20eq%20${id}`, packageApi.getPackage),
 
         getPackageByPackageType: (id: number) =>
-            useSWR(`/package?$filter=PackageTypeId%20eq%20${id}`, packageApi.getPackage)
+            useSWR(`/package?$filter=PackageTypeId%20eq%20${id}`, packageApi.getPackage),
+
+        getPackageByLicenseType: (name: string) =>
+            useSWR(`/package?$filter=licenseType/any(lt: lt/licenseName eq '${name}')`, packageApi.getPackage)
     }
 }

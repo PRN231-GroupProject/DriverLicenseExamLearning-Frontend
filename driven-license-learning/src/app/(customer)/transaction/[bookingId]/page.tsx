@@ -8,7 +8,7 @@ import {
     CardHeader,
     Divider, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader,
     Select,
-    SelectItem, Spacer, useDisclosure
+    SelectItem, Spacer, Spinner, useDisclosure
 } from "@nextui-org/react";
 import {useForm} from "react-hook-form";
 import {useCar} from "@/hooks/useCar";
@@ -31,7 +31,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const router = useRouter()
     const { getBookingById } = useBooking();
-    const {data: bookings, isLoading} = getBookingById(params.bookingId);
+    const {data: bookings, isLoading, error} = getBookingById(params.bookingId);
     const bookings1 = bookings == undefined||bookings[0]
 
     console.log(bookings1)
@@ -55,7 +55,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
         const fetchTransaction = async () => {
             var response;
             try {
-                response = await transactionApi.postTransaction(bookings1.bookingId,bookings1.package[0].price)
+                response = await transactionApi.postTransaction(bookings1.bookingId)
                     .then(r => {
                         notify(r.msg,'success');
                         onOpen()
@@ -63,7 +63,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
                 console.log(response)
             } catch (error) {
                 console.log(error)
-                notify(error,'error')
+                notify("error",'error')
             }
         };
         fetchTransaction();
@@ -101,7 +101,22 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
         fetchRegisterDay();
     }
 
-    if(isLoading) return <div>Loading...</div>
+    if (isLoading) {
+        return (
+            <div className='content-center text-center mt-6'>
+                <Spinner className='mt-6' />
+            </div>
+        )
+    }
+
+    if(error) {
+        return (
+            <div className='content-center text-center mt-6'>
+                Can not use function
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className='w-full h-[500px] text-center'>

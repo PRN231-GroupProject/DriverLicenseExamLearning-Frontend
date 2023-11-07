@@ -7,5 +7,8 @@ export function useLicenseType () {
     return {
         getLicenseTypes: () =>
             useSWR(`/license-type`, licenseTypeApi.getLicenseType),
+
+        getLicenseApplicationByCustomer: () =>
+            useSWR(`/license_application/ByCustomer`, licenseTypeApi.getLicenseApplicationByCustomer),
     }
 }
