@@ -173,9 +173,9 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
                                     plugins={[
                                         <DatePanel sort="date" />
                                     ]}/>
-                                {optionDates.map((d,index) => (
-                                    <div>Day {index+1}: {d}</div>
-                                ))}
+                                {/*{optionDates.map((d,index) => (*/}
+                                {/*    <div>Day {index+1}: {d}</div>*/}
+                                {/*))}*/}
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="danger" variant="light" onPress={onClose}>

@@ -130,7 +130,7 @@ function Navigation () {
                                 {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
                                     Transaction History
                                 </DropdownItem>: null}
-                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleExam()}>
+                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_exam" onClick={() => handleExam()}>
                                     Exam History
                                 </DropdownItem>: null}
                                 {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="license_application" onClick={() => handleSendLicense()}>
