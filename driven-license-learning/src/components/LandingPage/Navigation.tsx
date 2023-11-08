@@ -98,7 +98,7 @@ function Navigation () {
                             </NavbarItem>
                             <NavbarItem>
                                 <Link href="/test/3" aria-current="page" color="secondary">
-                                    Trial Test A3
+                                    Trial Test B1
                                 </Link>
                             </NavbarItem>
                         </>
