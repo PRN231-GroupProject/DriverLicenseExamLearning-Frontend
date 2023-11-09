@@ -32,6 +32,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
     const router = useRouter()
     const { getBookingById } = useBooking();
     const {data: bookings, isLoading, error} = getBookingById(params.bookingId);
+    console.log(bookings)
     const bookings1 = bookings == undefined||bookings[0]
 
     console.log(bookings1)
@@ -134,7 +135,7 @@ export default function TransactionPage({ params }: { params: { bookingId: numbe
                                 Price: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].price}</span>
                             </p>
                             <p className='row-span-1 font-medium'>
-                                Number Of Km Or Days: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].numberOfKmOrDays} (km/days)</span>
+                                Number Of Km Or Days: <span className='font-normal'>{bookings1.package==undefined||bookings1.package[0].numberOfKmOrDays} {bookings1.package==undefined||bookings1.package[0].packageTypes[0].packageTypeName}</span>
                             </p>
                             <p className='row-span-1 font-medium'>
                                 Car: <span className='font-normal'>{bookings1.car==undefined||bookings1.car[0].carName}</span>
