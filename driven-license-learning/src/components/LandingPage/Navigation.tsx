@@ -87,12 +87,12 @@ function Navigation () {
                                 </Link>
                             </NavbarItem>
                             <NavbarItem>
-                                <Link href="/test/1" aria-current="page" color="secondary">
+                                <Link href="/test/1" aria-current="page" className="list-none  hover:text-indigo-600">
                                     Trial Test A1
                                 </Link>
                             </NavbarItem>
                             <NavbarItem>
-                                <Link href="/test/2" aria-current="page" color="secondary">
+                                <Link href="/test/2" aria-current="page" className="list-none  hover:text-indigo-600">
                                     Trial Test A2
                                 </Link>
                             </NavbarItem>
