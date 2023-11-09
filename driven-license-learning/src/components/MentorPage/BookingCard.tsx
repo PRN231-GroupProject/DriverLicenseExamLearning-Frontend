@@ -107,6 +107,7 @@ export default function BookingCard(props) {
       toast.success("Tracking created successfully");
       console.log("Tracking created successfully:", response);
     } catch (error) {
+      toast.error("Tracking created failed!");
       console.error("Error creating tracking:", error);
     }
   };

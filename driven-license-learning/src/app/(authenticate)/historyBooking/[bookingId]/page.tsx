@@ -43,7 +43,7 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
 
     const {getTrackingsByBookingId} = useTracking()
     const {data: trackings, isLoading, error } = getTrackingsByBookingId(params.bookingId)
-
+    console.log(trackings)
     const columns= [
         {name: "Tracking Id", uid: "trackingId"},
         {name: "Tracking Date", uid: "trackingDate"},
@@ -90,9 +90,7 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
                 );
             case "processing":
                 return (
-                    <Chip className="capitalize" color={cellValue==1?`success`:`danger`} size="sm" >
-                        {cellValue==1?"Processing":"Not Processing"}
-                    </Chip>
+                    <div className='font-medium'>{selectedTracking.processing} </div>
                 );
             case "status":
                 return (
@@ -192,9 +190,7 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
                                 </div>
                                 <div className='grid grid-cols-2'>
                                     <div className='font-semibold'>Processing:</div>
-                                    <Chip className="capitalize" color={selectedTracking.processing==1?`success`:`danger`} size="sm" >
-                                        {selectedTracking.processing==1?"Processing":"Not Processing"}
-                                    </Chip>
+                                    <div className='font-medium'>{selectedTracking.processing} </div>
                                 </div>
                                 <div className='grid grid-cols-2'>
                                     <div className='font-semibold'>Status:</div>
@@ -204,7 +200,7 @@ export default function HistoryTrackingPage({ params }: { params: { bookingId: n
                                 </div>
                                 <div className='grid grid-cols-2'>
                                     <div className='font-semibold'>Total:</div>
-                                    <div className='font-medium'>{selectedTracking.total} VND</div>
+                                    <div className='font-medium'>{selectedTracking.total}</div>
                                 </div>
                                 <div className='grid grid-cols-2'>
                                     <div className='font-semibold'>Type:</div>

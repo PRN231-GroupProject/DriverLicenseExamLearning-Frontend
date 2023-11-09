@@ -97,8 +97,8 @@ function Navigation () {
                                 </Link>
                             </NavbarItem>
                             <NavbarItem>
-                                <Link href="/test/3" aria-current="page" className="list-none  hover:text-indigo-600">
-                                    Trial Test A3
+                                <Link href="/test/3" aria-current="page" color="secondary">
+                                    Trial Test B1
                                 </Link>
                             </NavbarItem>
                         </>
@@ -130,7 +130,7 @@ function Navigation () {
                                 {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
                                     Transaction History
                                 </DropdownItem>: null}
-                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleExam()}>
+                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_exam" onClick={() => handleExam()}>
                                     Exam History
                                 </DropdownItem>: null}
                                 {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="license_application" onClick={() => handleSendLicense()}>
