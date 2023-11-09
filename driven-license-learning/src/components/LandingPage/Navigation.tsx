@@ -76,9 +76,7 @@ function Navigation () {
                             <Link aria-current="page" href="/tracking" className="list-none  hover:text-indigo-600">
                                 Tracking
                             </Link>
-                            <Link aria-current="page" href="/salary" className="list-none px-6 hover:text-indigo-600">
-                                Salary
-                            </Link>
+                            
                         </NavbarItem> :
                         <>
                             <NavbarItem>
@@ -127,7 +125,7 @@ function Navigation () {
                                 {user.userAccountInfor?.role?.roleName === "Member" ?<DropdownItem key="history" onClick={() => handleHistory()}>
                                     Booking History
                                 </DropdownItem>: null}
-                                {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
+                                <DropdownItem key="history_transaction" onClick={() => handleTransaction()}>
                                     Transaction History
                                 </DropdownItem>: null}
                                 {user.userAccountInfor?.role?.roleName === "Member" ? <DropdownItem key="history_exam" onClick={() => handleExam()}>

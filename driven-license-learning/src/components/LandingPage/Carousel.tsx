@@ -7,7 +7,9 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import img2 from "../../../public/banner-2.jpg"
+import img1 from "../../../public/banner-1.jpg";
+import img2 from "../../../public/banner-3.jpg";
+import img3 from "../../../public/banner-4.jpg";
 
 export default function Carousel() {
   return (
@@ -33,34 +35,20 @@ export default function Carousel() {
         >
             <SwiperSlide>
                 <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
+                    <Image src={img1} alt="kda" className="h-3/4 w-3/4 object-fill" />
                 </div>
             </SwiperSlide>
             <SwiperSlide>
                 <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
+                    <Image src={img1} alt="kda" className="h-3/4 w-3/4 object-fill" />
                 </div>
             </SwiperSlide>
             <SwiperSlide>
                 <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
+                    <Image src={img1} alt="kda" className="h-3/4 w-3/4 object-fill" />
                 </div>
             </SwiperSlide>
-            <SwiperSlide>
-                <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className=' flex justify-center items-center'>
-                    <Image src={img2} alt="kda" className="h-3/4 w-3/4" />
-                </div>
-            </SwiperSlide>
+            
         </Swiper>
     </div>
   )
